@@ -1,6 +1,6 @@
 # Ollama Chat Interface
 
-A production-ready, feature-rich web interface for interacting with AI models via local Ollama server. Built with professional UI/UX design, comprehensive error handling, and advanced conversation management capabilities.
+A feature-rich web interface for interacting with AI models via local Ollama server. Built with professional UI/UX design, comprehensive error handling, and advanced conversation management capabilities.
 
 ![Chat Interface Screenshot](screenshots/Complete_Chat_Interface.png)
 
