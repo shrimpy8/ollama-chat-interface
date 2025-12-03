@@ -1,0 +1,65 @@
+# Ollama Chat Interface - Configuration File
+# ==========================================
+# This file contains all customizable settings for the chat interface.
+# You can modify these settings without changing the code.
+
+# Ollama Server Configuration
+ollama:
+  base_url: "http://localhost:11434"
+  api_endpoint: "/api/generate"
+  model_name: "deepseek-r1:8b"
+
+  # Model Parameters
+  parameters:
+    temperature: 0.7        # Creativity level (0.0 = deterministic, 1.0 = creative)
+    top_p: 0.9             # Nucleus sampling
+    top_k: 40              # Top-k sampling
+    num_predict: 2048      # Maximum tokens to generate
+
+# Request Configuration
+request:
+  timeout: 120             # Timeout in seconds for API requests
+  retry:
+    max_attempts: 3        # Maximum retry attempts for failed requests
+    min_wait: 2            # Minimum wait time between retries (seconds)
+    max_wait: 10           # Maximum wait time between retries (seconds)
+    multiplier: 2          # Exponential backoff multiplier
+
+# Logging Configuration
+logging:
+  level: "INFO"            # Logging level: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "ollama_chat.log"  # Log file name
+  console: true            # Enable console logging
+  file_logging: true       # Enable file logging
+
+# Gradio UI Configuration
+ui:
+  title: "DeepSeek-R1 AI Chat Interface"
+  description: "Chat with DeepSeek-R1 model via local Ollama server"
+  theme: "default"         # Gradio theme: default, soft, monochrome
+  share: false             # Enable public sharing via gradio.live link
+  server:
+    port: 7860             # Port to run the server on
+    host: "127.0.0.1"      # Host address (127.0.0.1 for local only)
+
+  # Interface Components
+  components:
+    input:
+      placeholder: "Type your message here..."
+      lines: 3
+      max_lines: 10
+    output:
+      placeholder: "Response will appear here..."
+      lines: 10
+
+  # Chat History
+  history:
+    max_messages: 20       # Maximum number of messages to keep in history
+    show_timestamps: true  # Show timestamps in chat history
+
+# Conversation Settings
+conversation:
+  system_prompt: "You are a helpful AI assistant powered by DeepSeek-R1."
+  memory_enabled: true     # Enable conversation memory
+  context_window: 4096     # Maximum context window in tokens
